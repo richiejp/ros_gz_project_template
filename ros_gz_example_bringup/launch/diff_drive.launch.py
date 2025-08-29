@@ -82,11 +82,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    app = Node(
+        package='ros_gz_go_application',
+        executable='goros2',
+    )
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
         bridge,
         robot_state_publisher,
-        rviz
+        rviz,
+        app
     ])
